@@ -16,30 +16,38 @@ include_directories(/mnt/c/Users/matte/Documents/eigen-3.4.0/eigen-3.4.0)
 
 # Add your source files here
 set(SOURCES
-        #src/portfolio-backtester.cpp
-        #src/ETL.cpp
-        #src/ETL.cpp
-        #src/option_mc.cpp
-        #src/black_scholes.hpp
-        # Header Files
-#        headers/options.h
-#        headers/options_european.h
-#        headers/options_american.h
-#        headers/rapidcsv.h
-#        headers/pricing_models.h
-#        headers/greeks.h
-#        headers/date.h
-#        headers/calendar.h
-        #headers/pde.h
-        #headers/solve.h
+        headers/date.h
+        headers/calendar.h
+        headers/options.h
+        headers/black_scholes.h
+        headers/math.h
+        headers/payoff.h
+
         # Source Files
-#        src/date.cpp
-#        src/calendar.cpp
-#        src/options.cpp
-#        src/pricing_models.cpp
-        #src/pde.cpp
-        #src/solve.cpp
+        sources/date.cpp
+        sources/calendar.cpp
+        sources/options.cpp
+        sources/black_scholes.cpp
+        sources/math.cpp
+
         main.cpp
+)
+
+set(TESTING
+        headers/date.h
+        headers/calendar.h
+        headers/options.h
+        headers/black_scholes.h
+        headers/math.h
+
+        sources/date.cpp
+        sources/calendar.cpp
+        sources/options.cpp
+        sources/black_scholes.cpp
+        sources/math.cpp
+
+        unit_tests/test_framework.h
+        testing.cpp
 )
 
 #if(NOT EXAMPLE_TO_COMPILE)
@@ -53,6 +61,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 # Add the executable target
 add_executable(${PROJECT_NAME} ${SOURCES})
+add_executable(test testing.cpp ${TESTING})
 
 # Link the libraries
 target_link_libraries(${PROJECT_NAME} ${LIBRARIES})
