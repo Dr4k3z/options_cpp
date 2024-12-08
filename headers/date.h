@@ -81,6 +81,10 @@ public:
        std::string month_name() const;
        std::string day_name() const;
        void print(bool text = false);
+       std::string to_string() const {
+              std::string res = std::to_string(year)+"-"+std::to_string(month)+"-"+std::to_string(day);
+              return res;
+       }
 
        //--------------------
        // Methods for computation
@@ -91,6 +95,7 @@ public:
        inline static Date max(const Date& p1, const Date& p2);
        inline static Date min(const Date& p1, const Date& p2);
        static Date today();
+       static Date tomorrow();
 
        //--------------------
        // Methods for importing and format change

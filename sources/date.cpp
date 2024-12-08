@@ -228,4 +228,9 @@ Date Date::today(){
        std::ostringstream oss;
        oss << std::put_time(local_time, "%Y/%m/%d");
        return Date::create(oss.str());
-}      
+}
+
+Date Date::tomorrow() {
+       Date d = Date::today();
+       return ++d;
+}

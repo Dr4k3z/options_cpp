@@ -42,7 +42,8 @@ float newton_raphson_method(const Option& option, float S, float marketPrice, fl
               iter++;
        }
 
-       if (iter == max_iter) {
+       bool flag = false;
+       if (iter == max_iter and flag) {
               std::cout << "Warning! max iterations reached\n";
        }
 
